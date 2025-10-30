@@ -1,0 +1,38 @@
+# ===== macOS 系統檔案 =====
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ===== VSCode 設定 =====
+.vscode/
+.history/
+.code-workspace
+
+# ===== C++ 編譯產物 =====
+*.out
+*.exe
+*.o
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+
+# ===== 自動產生的暫存檔 =====
+*.log
+*.tmp
+*.swp
+*.swo
+
+# ===== 編譯器快取 =====
+*.dSYM/
+*.cache/
+*.clangd/
+
+# ===== 其他 IDE 暫存檔 =====
+.idea/
+*.iml
+
+# ===== 測試資料 =====
+test/
+tests/
