@@ -9,6 +9,7 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
+        //approach 1
         
         sort(nums.begin(), nums.end());
         
@@ -52,6 +53,7 @@ public:
     }
 
     vector<vector<int>> threeSum1(vector<int>& nums) {
+        //approach 2
         int n = nums.size();
         vector<vector<int>> ans;
         if (n < 3) return ans;
@@ -91,7 +93,7 @@ int main() {
 
     for (int t = 0; t < testcases.size(); ++t) {
         cout << "Testcase " << t + 1 << ": ";
-        vector<vector<int>> result = s.threeSum1(testcases[t]);
+        vector<vector<int>> result = s.threeSum(testcases[t]);
 
         cout << "[ ";
         for (auto &triplet : result) {
