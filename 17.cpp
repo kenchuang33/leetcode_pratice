@@ -21,9 +21,12 @@ public:
         for(char c : Mapping[digits[pos]-'0'])
         // 要注意把digits的char轉成int
         {
-            path.push_back(c);
-            dfs(digits,pos+1,path);
-            path.pop_back();
+            //path.push_back(c);
+            //dfs(digits,pos+1,path);
+            //path.pop_back();
+            
+            dfs(digits,pos+1,path+c);//值傳遞
+            
         }
 
     }
@@ -82,7 +85,7 @@ int main() {
     for (auto &digits : tests) {
         cout << "Input: \"" << digits << "\"\n";
         
-        vector<string> res = sol1.letterCombinations(digits);
+        vector<string> res = sol.letterCombinations(digits);
 
         cout << "Output size: " << res.size() << "\n";
         cout << "Combinations: ";
