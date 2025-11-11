@@ -54,25 +54,25 @@ struct Student {
      void print() { cout << name << "," << score; }
 };
 
-int main() {
-    // 建立一個 MyStruct 物件，會自動呼叫建構子
-    //MyStruct a(8);
+// int main() {
+//     // 建立一個 MyStruct 物件，會自動呼叫建構子
+//     //MyStruct a(8);
 
-    // 呼叫 operator()，像函數一樣使用物件
-    //a();
+//     // 呼叫 operator()，像函數一樣使用物件
+//     //a();
 
-    //a.print();
+//     //a.print();
 
-    Student a;
-    Student b("darren");
-    Student c("ken",5);
-    Student d(10);
+//     Student a;
+//     Student b("darren");
+//     Student c("ken",5);
+//     Student d(10);
 
-    a();
-    b();
-    c();
-    d();
+//     a();
+//     b();
+//     c();
+//     d();
 
 
-    return 0;
-}
+//     return 0;
+// }
