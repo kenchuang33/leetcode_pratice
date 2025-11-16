@@ -26,17 +26,17 @@ public:
 
 class Solution2 {
 public:
-// greedy way 每一次都看最遠可以跳到哪裡，並在這一段選一個最遠的當作終點，在一直重複
+// greedy way 每一次都看最遠可以跳到哪裡，並在這一段選一個最遠的當作下一次跳躍的點，並一直重複
     int jump(vector<int>& nums) {
         int n = nums.size();
         int jumps = 0, farthest = 0, curEnd = 0;//farthest是比較每一格能走最遠的是多遠i + nums[i] ， curEnd是到最遠的距離
 
-        // 思路為我先知道我這一跳能跳到多遠的距離，代表這段curEnd距離裡面，我可以選一個i + nums[i]最大的值，他可以讓我下一步跳最遠
+        // 思路為我先知道我這一跳能跳到多遠的距離(farthest)，代表這段curEnd=farthest距離裡面，我可以選一個i + nums[i]最大的值，他可以讓我下一步跳最遠
         // 當我能夠挑選最遠距離的扣打已經到達，我能跳的最遠距離的時候，
     
 
         for (int i = 0; i < n - 1; i++) {
-            farthest = max(farthest, i + nums[i]);
+            farthest = max(farthest, i + nums[i]);//沒有初始化更新farthest是因為當後來的能到最遠的距離都沒有更遠的時候 會變成max(farthest, farthest + nums[i])
 
             if (i == curEnd) {
                 jumps++;
