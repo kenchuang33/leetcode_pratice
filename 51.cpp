@@ -1,4 +1,4 @@
-// 
+// N-Queens
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -6,17 +6,15 @@ using namespace std;
 class Solution {
 public:
     vector<vector<string>> res;
-    int n;
 
     vector<vector<string>> solveNQueens(int n) 
     {
-        this->n = n;
         vector<int> path;                // path[row] = col 放皇后的地方
         vector<bool> cols(n, false);     // col 是否有皇后
-        vector<bool> diag1(2*n, false);  // r - c + n
-        vector<bool> diag2(2*n, false);  // r + c
+        vector<bool> diag1(2*n, false);  // r - c + n //左斜
+        vector<bool> diag2(2*n, false);  // r + c //右斜
 
-        backtracking(0, path, cols, diag1, diag2);
+        backtracking(0, path, cols, diag1, diag2, n);
         return res;
     }
 
@@ -24,12 +22,13 @@ public:
                       vector<int>& path,
                       vector<bool>& cols,
                       vector<bool>& diag1,
-                      vector<bool>& diag2)
+                      vector<bool>& diag2,
+                      int n)
     {
         // 如果 row == n，代表 n 列都放完了
         if (row == n)
         {
-            res.push_back(buildBoard(path));
+            res.push_back(buildBoard(path, n));
             return;
         }
 
@@ -51,7 +50,7 @@ public:
             path.push_back(col);
 
             // 放下一列
-            backtracking(row + 1, path, cols, diag1, diag2);
+            backtracking(row + 1, path, cols, diag1, diag2, n);
 
             // 回溯（撤銷）
             path.pop_back();
@@ -61,7 +60,7 @@ public:
         }
     }
 
-    vector<string> buildBoard(vector<int>& path)
+    vector<string> buildBoard(vector<int>& path, int n)
     {
         vector<string> board(n, string(n, '.'));
         for (int r = 0; r < n; r++)
