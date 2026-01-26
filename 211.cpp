@@ -8,6 +8,7 @@ struct TrieNode {
 };
 
 class WordDictionary {
+    // trie
     TrieNode* root;
 
 public:
